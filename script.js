@@ -1,7 +1,7 @@
-///////event listener function///////
+
 document.getElementById('search-music').addEventListener('click', searchMusic);
 
-////////search song function///////////
+//search function
 function searchMusic(){
     document.getElementById('all-results').innerHTML = '';
     document.getElementById('lyrics').innerHTML = '';
@@ -33,7 +33,7 @@ function searchMusic(){
         
     })
 }
-//////get lyrics function/////////////
+//lyrics function
 function getLyrics(id){
     for (let i = 0; i < 10; i++) {
         if(storedData.data[i].id == id){
@@ -47,20 +47,20 @@ function getLyrics(id){
                                                                             
                                                                             <h2 class="text-success mb-4">Song Lyrics</h2>
                                                                             <h5>${lyrics}</h5>
-                                                                            <button class="btn btn-success"><a class="nav-link text-white" href="#">Go Top <span class="sr-only">(current)</span></a></button>
-                                                                            <button class="btn btn-success" onClick="goBack()"><a class="nav-link text-white" href="#">Go Back<span class="sr-only">(current)</span></a></button>
+                                                                            <button class="btn btn-success"><a class="nav-link text-white" href="#">Page up <span class="sr-only">(current)</span></a></button>
+                                                                            <button class="btn btn-success" onClick="back()"><a class="nav-link text-white" href="#">Back<span class="sr-only">(current)</span></a></button>
                                                                         </div>`
             })
             .catch((error) => {
                 alert("Lyrics not found");
-                goBack();
+                back();
             })
     }
     } 
     document.getElementById("all-results").style.display= "none"
 }
-function goBack(){
+//back function
+function back(){
     document.getElementById("all-results").style.display= "block"
- //   document.getElementById("lyrics").style.display= "none"
     searchMusic();
 }
